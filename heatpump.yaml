@@ -1,5 +1,5 @@
 external_components:
-  - source: github://tobias-93/esphome-ecodan-heatpump@main
+  - source: github://mesomorf1/esphome-geodan-heatpump@main
     components: [ ecodan ]
 
 logger:
@@ -32,7 +32,7 @@ time:
 uart:
   id: ecodan_uart
   baud_rate: 2400
-  tx_pin: GPIO1
+  tx_pin: GPIO4
   rx_pin: GPIO3
   rx_buffer_size: 1024
   parity: EVEN
