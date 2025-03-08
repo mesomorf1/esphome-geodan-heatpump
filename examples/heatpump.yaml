@@ -1,27 +1,28 @@
 substitutions:
-  name: heatpump
-  friendlyName: Ecodan Heatpump
+  name: geodan-heatpump
+  friendlyName: Geodan Heatpump
 
 esphome:
   name: ${name}
   friendly_name: ${friendlyName}
 
-esp8266:
-  board: esp01_1m
+esp32:
+  board: esp32-s3-devkitm-1
   framework:
-    platform_version: 4.2.1
+    type: esp-idf
+    version: recommended
+    # Custom sdkconfig options
+    sdkconfig_options:
+      COMPILER_OPTIMIZATION_SIZE: y
 
 packages:
-  ecodan-heatpump: github://tobias-93/esphome-ecodan-heatpump/heatpump.yaml@main
+  ecodan-heatpump: github://mesomorf1/esphome-geodan-heatpump/heatpump.yaml@main
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
 ota:
-  password: !secret heatpump_ota_password
+  #password: !secret heatpump_ota_password
   platform: esphome
 
-api:
-  encryption:
-    key: !secret heatpump_encryption_key
